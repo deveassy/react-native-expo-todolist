@@ -1,17 +1,66 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
-export default function Items() {
+const Items = ({ title, done }) => {
   return (
-    <View>
-      {/* <Text style={styles.text} onPress={onPressButton}>
-        Button
-      </Text> */}
-      <Text>{title}</Text>
+    <View style={styles.container}>
+      <View style={styles.items}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={done ? styles.done : styles.haveto}
+        >
+          <FontAwesome name="check" color={done ? "#000" : "#999"} size={14} />
+        </TouchableOpacity>
+        <Text style={styles.title}>{title}</Text>
+      </View>
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
+  items: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#777",
+  },
+  title: {
+    fontSize: 16,
+    color: "#fff",
+  },
+  done: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 28,
+    height: 28,
+    marginRight: 10,
+    backgroundColor: "#f3c623",
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: "transparent",
+  },
+  haveto: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 28,
+    height: 28,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: "#999",
+    borderRadius: 14,
+  },
+});
+
+export default Items;
 
 // function onPressButton() {
-//   alert("클릭되었답니다!");
+//   {
+//     style ? styles.done : styles.haveto;
+//   }
 // }

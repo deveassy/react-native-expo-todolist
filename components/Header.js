@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 35,
+    marginBottom: 20,
   },
   headerText: {
     padding: 8,

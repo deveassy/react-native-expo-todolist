@@ -9,6 +9,8 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 const Header = ({ show }) => {
+  //   let Today = new Date();
+  //   Today.toLocaleDateString();
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Today's ToDoList</Text>

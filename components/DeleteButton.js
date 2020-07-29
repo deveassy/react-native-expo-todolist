@@ -1,9 +1,13 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function DeleteButton() {
+export default function DeleteButton({ onPress }) {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={onPress}
+      style={styles.button}
+    >
       <Text style={styles.delete}>삭제</Text>
     </TouchableOpacity>
   );

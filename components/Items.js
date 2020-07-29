@@ -4,9 +4,9 @@ import { FontAwesome } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import DeleteButton from "./DeleteButton";
 
-const Items = ({ title, done }) => {
+const Items = ({ title, done, remove }) => {
   return (
-    <Swipeable renderRightActions={() => <DeleteButton />}>
+    <Swipeable renderRightActions={() => <DeleteButton onPress={remove} />}>
       <View style={styles.container}>
         <View style={styles.items}>
           <TouchableOpacity

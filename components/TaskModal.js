@@ -17,7 +17,6 @@ const TaskModal = ({ isVisible, hide, add }) => {
             content = text;
           }}
           onEndEditing={() => add(content)}
-          multiline={false}
           placeholder="What are you going to Do?"
           maxLength={20}
         />

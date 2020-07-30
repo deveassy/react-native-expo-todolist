@@ -1,14 +1,15 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import styled from "styled-components";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import DeleteButton from "./DeleteButton";
 
-const Items = ({ title, done, remove }) => {
+export default function Items({ title, done, remove }) {
   return (
     <Swipeable renderRightActions={() => <DeleteButton onPress={remove} />}>
-      <View style={styles.container}>
-        <View style={styles.items}>
+      <Container>
+        <Item>
           <TouchableOpacity
             activeOpacity={0.8}
             style={done ? styles.done : styles.haveto}
@@ -19,29 +20,14 @@ const Items = ({ title, done, remove }) => {
               size={14}
             />
           </TouchableOpacity>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      </View>
+          <ItemText>{title}</ItemText>
+        </Item>
+      </Container>
     </Swipeable>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: {
-    paddingLeft: 25,
-    paddingRight: 25,
-  },
-  items: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#777",
-  },
-  title: {
-    fontSize: 16,
-    color: "#fff",
-  },
   done: {
     alignItems: "center",
     justifyContent: "center",
@@ -65,10 +51,18 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Items;
-
-// function onPressButton() {
-//   {
-//     style ? styles.done : styles.haveto;
-//   }
-// }
+const Container = styled.View`
+  padding: 0 25px;
+`;
+const Item = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #777;
+`;
+const ItemText = styled.Text`
+  font-size: 16px;
+  color: #fff;
+`;

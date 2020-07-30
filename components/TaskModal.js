@@ -1,18 +1,13 @@
 import React from "react";
-import { TextInput, View, StyleSheet } from "react-native";
+import styled from "styled-components";
 import Modal from "react-native-modal";
 
-const TaskModal = ({ isVisible, hide, add }) => {
+export default function TaskModal({ isVisible, hide, add }) {
   let content = "";
   return (
-    <Modal
-      isVisible={isVisible}
-      onBackdropPress={hide}
-      avoidKeyboard
-      style={styles.modal}
-    >
-      <View style={styles.modalContainer}>
-        <TextInput
+    <ModalContainer isVisible={isVisible} onBackdropPress={hide} avoidKeyboard>
+      <ModalStyle>
+        <InputModal
           onChangeText={(text) => {
             content = text;
           }}
@@ -20,20 +15,24 @@ const TaskModal = ({ isVisible, hide, add }) => {
           placeholder="What are you going to Do?"
           maxLength={20}
         />
-      </View>
-    </Modal>
+      </ModalStyle>
+    </ModalContainer>
   );
-};
-const styles = StyleSheet.create({
-  modal: {
-    justifyContent: "flex-end",
-    margin: 5,
-  },
-  modalContainer: {
-    padding: 16,
-    backgroundColor: "#FFFFFF",
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-  },
-});
-export default TaskModal;
+}
+
+const ModalContainer = styled(Modal)`
+  justify-content: flex-end;
+  margin: 5px;
+`;
+const InputModal = styled.TextInput`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+`;
+const ModalStyle = styled.View`
+  padding: 16px;
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+`;

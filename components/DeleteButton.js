@@ -1,28 +1,23 @@
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import styled from "styled-components";
 
 export default function DeleteButton({ onPress }) {
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={onPress}
-      style={styles.button}
-    >
-      <Text style={styles.delete}>삭제</Text>
-    </TouchableOpacity>
+    <Container activeOpacity={0.8} onPress={onPress}>
+      <DeleteText>삭제</DeleteText>
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 4,
-    margin: 1,
-    backgroundColor: "#FE5746",
-  },
-  delete: {
-    margin: 10,
-    color: "#fff",
-  },
-});
+const Container = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin: 1px;
+  background-color: #fe5746;
+`;
+
+const DeleteText = styled.Text`
+  margin: 10px;
+  color: #fff;
+`;

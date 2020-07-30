@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, StyleSheet, FlatList } from "react-native";
+import { FlatList } from "react-native";
+import styled from "styled-components";
 
 import Header from "./components/Header";
 import Items from "./components/Items";
@@ -27,7 +28,7 @@ export default function App() {
     showModal: false,
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <Header
         show={() => {
           setState({
@@ -67,17 +68,14 @@ export default function App() {
           setState({ showModal: false });
         }}
       />
-    </SafeAreaView>
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#222",
-  },
-});
-
+const Container = styled.SafeAreaView`
+  flex: 1;
+  background-color: #222;
+`;
 // const App = () => {
 //   const [state, setState] = useState([]);
 

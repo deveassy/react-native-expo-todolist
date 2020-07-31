@@ -48,6 +48,11 @@ export default function App() {
                   todos: state.todos.filter((_, i) => i !== index),
                 });
               }}
+              toggle={() => {
+                const newTodos = [...state.todos];
+                newTodos[index].done = !newTodos[index].done;
+                setState({ todos: newTodos });
+              }}
             />
           );
         }}
